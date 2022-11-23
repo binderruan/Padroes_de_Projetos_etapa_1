@@ -8,9 +8,4 @@ public class NullLivros extends AbstractLivros{
 		return "Livro nao encontrado!";
 	}
 
-	@Override
-	public int getPaginas() {
-		return 0;
-	}
-
 }

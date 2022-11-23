@@ -4,11 +4,10 @@ import observerPattern.KindleAdmin;
 import observerPattern.Observable;
 import observerPattern.Observer;
 
-//classe cliente possui os atributos...
 public class Kindle implements Observer {
 	private int ipdispositivo;
 	
-	//Metodo constrtuor Kindle  
+	//Metodo construtor Kindle  
 	public Kindle(int ipdispositivo, boolean disponivel){
 		super();
 		this.ipdispositivo = ipdispositivo;
@@ -21,7 +20,7 @@ public class Kindle implements Observer {
 		System.out.println(((KindleAdmin)observable).getNomeAdmin() +" para maquina "+this.ipdispositivo+": "+message);
 	}
 
-    // Metodos get e set para telefone
+    // Metodos get e set 
 	public int getIpdispositivo() {
 		return ipdispositivo;
 	}

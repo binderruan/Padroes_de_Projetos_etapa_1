@@ -5,18 +5,17 @@ public abstract class Livro {
     private String titulo;
     private Double precoEmprestimo;
 
-   //metodo construtor
     public Livro(String titulo, int numPags, Double precoEmprestimo){
         this.titulo = titulo;
         this.precoEmprestimo = precoEmprestimo;
     }
 
-    // retorna o calcularPrecoEmprestimo x as semnas de emprestimo
+    // metodo calcularPrecoExtendido x semnas = calcularPrecoEmprestimo
     public Double calcularPrecoExtendido(int semanas){
         return calcularPrecoEmprestimo()*semanas;
     }
 
-    //metodo abstrato que retorna double 
+    //metodo abstrato 
     protected abstract Double calcularPrecoEmprestimo();
 
     // ↓ Get e set 
@@ -35,6 +34,5 @@ public abstract class Livro {
     public void setPrecoEmprestimo(Double precoEmprestimo) {
         this.precoEmprestimo = precoEmprestimo;
     }
-
 
 }

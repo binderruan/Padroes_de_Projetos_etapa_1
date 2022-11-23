@@ -2,30 +2,26 @@ package state;
 
 import hookMethod.Livro;
 
-public class LivroAcervo extends Livro {	 // extendemos para a classe livro de metodo HookMethod 
-    private LivroState state;				//  atributo state
+public class LivroAcervo extends Livro {	
+    private LivroState state;				 // recebe o estado do livro
 
     
-    public LivroAcervo(String titulo, int paginas, Double preco) {		// metodo contrutor inicializamos e passamos 
-        super(titulo,paginas,preco);		                            // a referencia para disponivel
-        this.state = new Disponivel(this);					            // 
+    public LivroAcervo(String titulo, int paginas, Double preco) {		
+        super(titulo,paginas,preco);		                            
+        this.state = new Disponivel(this);  		    
     }
 
-    // Get e Set de LivroState e state
-    
+    // Get e Set de LivroState e state   
     protected Double calcularPrecoEmprestimo() {
         return this.getPrecoEmprestimo() * 2.0;
     }
 
-    // chamamos o emprestado e disponivel no objeto LivroAcervo
-    
-    
     public void emprestado(){
-        state.livroEmprestado();   //pega o estado e chama o metodo livroEmprestado
+        state.livroEmprestado();   
     }
 
     public void disponivel(){
-        state.livroDisponivel();  //pega o estado e chama o metodo livroDisponivel
+        state.livroDisponivel();  
     }
 
     public void state(){

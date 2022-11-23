@@ -12,7 +12,7 @@ public class Diaria implements CustoUtilizacao{
 		
 		
 		for(Integer dia : tempo) {       
-			total = dia*2.0;			 // total = numero de dias x 2
+			total = dia*2.0;			 // total = numero de dias x R$2
 		}
 		return total;
 	}

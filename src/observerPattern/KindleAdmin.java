@@ -49,7 +49,7 @@ public class KindleAdmin implements Observable{
     }
 
     // ↓ get e set
-   
+  
     public String getNomeAdmin() {
         return nomeAdmin;
     }

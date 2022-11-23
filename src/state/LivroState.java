@@ -2,15 +2,13 @@ package state;
 
 //classe abstrata 
 public abstract class LivroState {
-	
-    private LivroAcervo livro; //referencia para o livro
+    private LivroAcervo livro;     
 
-    public LivroState(LivroAcervo livro){	// recebemos o livro e setamos no atributo
+    public LivroState(LivroAcervo livro){	// passamos o estado do livro
         this.livro = livro;
     }
 
-   // tres metodos abtatos que precisam ser implentadas pelas 
-   // classes que irao extender LivroState
+   // tres metodos abtatos que precisam ser implentadas pelas classes livrostate
     
     public abstract void livroDisponivel();
 

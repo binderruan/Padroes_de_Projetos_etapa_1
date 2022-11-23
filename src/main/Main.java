@@ -13,59 +13,63 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		//Utilizando o padrao Strategy:
+		//Utilizando o padrao Strategy: CustoUtilizacao - Diaria - ResultadoUtil
 		System.out.println("------------------- \nPadrao Strategy");
-		
-		// Objeto  do tipo cliente
-		Cliente ruan = new Cliente("Ruan", 1405);
-		List<Integer> dias = new ArrayList<Integer>(); //lista de dias
-		
-		//Apartir da sessao e possivel retirar o tempo de utilizacao e somar aos dias utilizados
+		System.out.println("- Realizando calculo de custo da utilizaÁ„o do kindle");
 
-		dias.add(1); // adc dias de utilizacao
+		// Objeto  do tipo cliente
+		Cliente ruan = new Cliente("Ruan", 478850662);
+		List<Integer> dias = new ArrayList<Integer>();
 		
+		dias.add(1); //  dias de utilizacao
+	
 		//Resultado 
 		ResultadoUtilKindle diaria = new ResultadoUtilKindle(ruan, dias, 1, new Diaria());
-		
+
 		System.out.println("Total a ser pago: R$ "+ diaria.calcularPrecoFinal());
 		
-		//Utilizando o padrao Null Object
+		//Utilizando o padrao Null Object - Null object - LivrosDao
 		System.out.println("-------------------\nPadrao Null Object");
-		
-		//Buscando e armazenando resultado das livros
-		AbstractLivros livro1 = LivrosDAO.getCustomer("Feitos de sol");
-		
-		System.out.println("Livros: ");
-		System.out.println("Titulo: "+livro1.getTitulo()+"\nPaginas: "+livro1.getPaginas());
+		System.out.println("- Realiza busca de livro ");
 
-		//Utilizando o padr√£o Hook Method
+		//Buscando e armazenando resultado das livros
+		AbstractLivros livro1 = LivrosDAO.getCustomer("O poder do habito");
+		AbstractLivros livro2 = LivrosDAO.getCustomer("Poder do habito");
+
+		System.out.println("Titulo: "+livro1.getTitulo());
+		System.out.println("Titulo: "+livro2.getTitulo());
+
+		//Utilizando o padr√£o Hook Method - Livro - LivroDigital - LivroFisico
 		System.out.println("-------------------\nHook Method");
+		System.out.println("- Calcula preÁo de livro digital, fisico com desconto de 10 e 20%");
 
 		//Livro fisico e digital sao do tipo livro 
-		Livro Digital = new LivroDigital("Digital",100, 2.0); 
-		Livro Fisico = new LivroFisico("Fisico",100, 2.0);
+		Livro Digital = new LivroDigital("Digital",100, 10.0); 
+		Livro Fisico = new LivroFisico("Fisico",100, 10.0);
 
 		//Calculo dos resultados
-		System.out.println("Preco do livro "+Digital.getTitulo()+" com desconto: R$"+Digital.calcularPrecoExtendido(2));
-		System.out.println("Preco do livro "+Fisico.getTitulo()+" com desconto: R$"+Fisico.calcularPrecoExtendido(2));
+		System.out.println("Preco do livro "+Digital.getTitulo()+" com desconto: R$"+Digital.calcularPrecoExtendido(1));
+		System.out.println("Preco do livro "+Fisico.getTitulo()+" com desconto: R$"+Fisico.calcularPrecoExtendido(1));
 		
-		//Utilizando o padr√£o State Pattern
+		//Utilizando o padrao State Pattern - 
 		System.out.println("-------------------\nPadrao State Pattern");
+		System.out.println("- Definindo estado do livro dispinivel ou emprestado");
 
 		//Criando livro com seus atributos 
-		LivroAcervo livroAcervo = new LivroAcervo("Feitos de sol", 256, 1.25);
+		LivroAcervo livroAcervo = new LivroAcervo("O poder do habito", 256, 10.0);
 
 		//Definindo o estado do objeto e imprimindo
-		livroAcervo.emprestado();           //pode alterar entre disponivel, emprestado
+		livroAcervo.state();				
+		livroAcervo.emprestado();           
 		livroAcervo.state();
-
-		//Utilizando o padr√£o Observer Pattern
+		
+		//Utilizando o padrao Observer Pattern
 		System.out.println("-------------------\nObserver Pattern");
+		System.out.println("- Enviando notificaÁ„o para dispositivos");
 
-		//Nesse padrao vou usar os Kindle Observavel como  e o Kindle do Admin como o observadores
-		//Assim o Admin poder√° mandar mensagem para todos os Kindle ou especificar
+		//Nesse padrao vou usar os Kindle como Observavel e o KindleAdm como o observador
+		//Assim o Admin pode mandar mensagem para todos os Kindle ou especificar
 
-		//Kindlees como 'Device' que ser√£o os Observadores
 		Kindle Kindle1 = new Kindle(1, true);
 		Kindle Kindle2 = new Kindle(2, true);
 
@@ -78,11 +82,7 @@ public class Main {
 
 		//Enviando mensagem para todos e uma exclusiva para a kindle 1
 		KindleAdm.notifyAll("A biblioteca esta fechada amanha!");
-		KindleAdm.notify(1,"Realize a renovaÁ„o do seu kindle online!");
-
-		//Tirando observador 
-		KindleAdm.removeObserver(Kindle1);
-		KindleAdm.notify(1,"Essa mensagem ,n„o ira aparecer!");
+		KindleAdm.notify(1,"Realize a renovaÁ„o do seu livro online!");
 
 		System.out.println("-------------------\n");
 

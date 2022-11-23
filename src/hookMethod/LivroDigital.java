@@ -8,8 +8,8 @@ public class LivroDigital extends Livro {
         super(titulo, numPags, precoEmprestimo);
     }
     
-    // pegamos metodo PrecoEmprestimo e faazemos menos 10%
+    // pegamos metodo PrecoEmprestimo e fazemos menos 10%
     protected  Double calcularPrecoEmprestimo(){
-        return this.getPrecoEmprestimo() - 0.1;
+        return this.getPrecoEmprestimo() - 1;
     }
 }

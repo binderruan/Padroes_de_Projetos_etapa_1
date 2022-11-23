@@ -10,6 +10,6 @@ public class LivroFisico extends Livro {
 
     // pegamos metodo PrecoEmprestimo e faazemos menos 20%
     protected  Double calcularPrecoEmprestimo(){
-        return this.getPrecoEmprestimo() - 0.2;
+        return this.getPrecoEmprestimo() - 2;
     }
 }
